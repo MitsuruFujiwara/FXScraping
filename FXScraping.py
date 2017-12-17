@@ -31,7 +31,6 @@ class FXScraping(object):
         df = df.astype(float)
         _df = {}
         for c in df.columns:
-            print(c)
             try:
                 _df[c] = df[c] / df['USD'] if c in self.xxxusd else df['USD'] / df[c]
             except (ValueError, TypeError):
@@ -44,6 +43,13 @@ class FXScraping(object):
         df_jpy = self.__getData(self.url_historical)
         df_usd = self.__getAgainstUSD(df_jpy)
 
+        return df_jpy, df_usd
+
+    def updateData(self):
+        #TODO
+        return None
+
+    def saveData(self):
         # save csv
         df_jpy.to_csv('df_jpy.csv')
         df_usd.to_csv('df_usd.csv')
@@ -55,12 +61,6 @@ class FXScraping(object):
 
         # Close DataBase
 #        conn.close()
-
-        return df_jpy, df_usd
-
-    def updateData(self):
-        #TODO
-        return None
 
 if __name__ == '__main__':
     fx = FXScraping()
