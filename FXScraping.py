@@ -11,8 +11,8 @@ class FXScraping(object):
     """
 
     def __init__(self):
-        self.url_historical = 'https://www.mizuhobank.co.jp/rate/market/csv/quote.csv'
-        self.url_current = 'https://www.mizuhobank.co.jp/rate/market/csv/tm_quote.csv'
+        self.url_historical = 'https://www.mizuhobank.co.jp/market/csv/quote.csv'
+        self.url_current = 'https://www.mizuhobank.co.jp/market/csv/tm_quote.csv'
         self.xxxusd = ['GBP', 'EUR', 'AUD', 'NZD']
 
     def __getData(self, url):
