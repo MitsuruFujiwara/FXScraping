@@ -16,7 +16,7 @@ class FXScraping(object):
         self.xxxusd = ['GBP', 'EUR', 'AUD', 'NZD']
 
     def __getData(self, url):
-        data = pd.read_csv(url)
+        data = pd.read_csv(url, encoding="shift-jis")
         col = list(data.ix[1, :])
         col[0] = 'date'
         col[32] = 'NA'
