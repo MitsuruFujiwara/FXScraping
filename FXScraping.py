@@ -43,6 +43,9 @@ class FXScraping(object):
         df_jpy = self.__getData(self.url_historical)
         df_usd = self.__getAgainstUSD(df_jpy)
 
+        df_jpy = df_jpy.astype(float)
+        df_usd = df_usd.astype(float)
+
         return df_jpy, df_usd
 
     def updateData(self):
